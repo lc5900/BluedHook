@@ -14,7 +14,7 @@ import java.lang.StringBuilder
  **/
 class VipModule(loader: ClassLoader, mContext: Context) : BaseModule(loader, mContext) {
     fun hookVip() {
-        unlockSelfFirst()
+       // unlockSelfFirst()
         unlockVIP()
     }
 

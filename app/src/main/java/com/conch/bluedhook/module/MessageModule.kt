@@ -101,7 +101,7 @@ class MessageModule(loader: ClassLoader, mContext: Context) : BaseModule(loader,
      * convert the recall message to normal message
      */
     private fun convertRetractMsgToNormal() {
-        XposedHelpers.findAndHookMethod(HookConstant.chatFragment, loader, "onMsgDataChanged", List::class.java, object : XC_MethodHook() {
+        XposedHelpers.findAndHookMethod(HookConstant.chatFragment, loader, "a", List::class.java, object : XC_MethodHook() {
             override fun beforeHookedMethod(param: MethodHookParam?) {
                 val data = param!!.args[0] as List<Any>
                 data.forEach {
@@ -137,7 +137,7 @@ class MessageModule(loader: ClassLoader, mContext: Context) : BaseModule(loader,
      * convert flash  to normal
      */
     private fun convertFlashPic() {
-        XposedHelpers.findAndHookMethod(HookConstant.chatFragment, loader, "onMsgDataChanged", List::class.java, object : XC_MethodHook() {
+        XposedHelpers.findAndHookMethod(HookConstant.chatFragment, loader, "a", List::class.java, object : XC_MethodHook() {
             override fun beforeHookedMethod(param: MethodHookParam?) {
                 val data = param!!.args[0] as List<Any>
                 data.forEach {

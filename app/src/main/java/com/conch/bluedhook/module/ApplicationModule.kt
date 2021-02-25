@@ -16,10 +16,16 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
  */
 object ApplicationModule {
     fun hookApplicationContext(lpparam: XC_LoadPackage.LoadPackageParam, body: (Context, ClassLoader) -> Unit) {
-        XposedHelpers.findAndHookMethod(ContextWrapper::class.java, "attachBaseContext", Context::class.java, object : XC_MethodHook() {
+
+        XposedHelpers.findAndHookMethod("com.soft.blued.MyWrapperProxyApplication", lpparam.classLoader,
+                "onCreate", object : XC_MethodHook() {
             override fun afterHookedMethod(param: MethodHookParam?) {
-                val mContext = param!!.args[0] as Context
-                body.invoke(mContext, lpparam.classLoader)
+                XposedHelpers.findAndHookMethod(ContextWrapper::class.java, "attachBaseContext", Context::class.java, object : XC_MethodHook() {
+                    override fun afterHookedMethod(param: MethodHookParam?) {
+                        val mContext = param!!.args[0] as Context
+                        body.invoke(mContext, lpparam.classLoader)
+                    }
+                })
             }
         })
     }

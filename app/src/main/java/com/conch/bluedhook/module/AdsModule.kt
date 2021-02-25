@@ -23,7 +23,7 @@ class AdsModule(loader: ClassLoader, mContext: Context) : BaseModule(loader, mCo
         //removeVipDoor()
         //removeMoney()
         //removeGameCenter()
-        //removeVisitor()
+        removeVisitor()
     }
 
     /**
