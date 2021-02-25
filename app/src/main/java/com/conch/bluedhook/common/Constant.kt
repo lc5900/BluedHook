@@ -40,7 +40,7 @@ object HookConstant {
     //chatfragment
     val chatFragment = "$processName.ui.msg.MsgChattingFragment"
     //
-    val albumManager = "$processName.ui.user.adapter.AlbumDataManager"
+    val albumManager = "$processName.ui.user.adapter.AlbumAdapterNew"
 
     val visitorFragment="$processName.ui.find.fragment.MyVisitorFragment"
 
